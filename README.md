@@ -133,4 +133,68 @@ This document provides a concise summary of AWS fundamental concepts including R
 - Review **IAM permissions** using AWS IAM Access Analyzer.
 
 ---
+## 🔍 IAM Access Advisor & Credential Report
 
+---
+
+### ✅ IAM Access Advisor
+
+**IAM Access Advisor** helps you analyze **what services a user or role has accessed** and **when**.  
+It allows you to review **unused permissions** and follow the **least privilege principle**.
+
+#### 📍 Where to Find:
+- IAM Console → Users or Roles → Select a user/role → Access Advisor tab
+
+#### 🧾 Access Advisor Output Example:
+
+| AWS Service | Last Accessed     | Actions Granted       |
+|-------------|-------------------|------------------------|
+| S3          | 2025-07-12        | s3:ListBucket          |
+| EC2         | Never Accessed    | ec2:StartInstances     |
+
+Use this to **identify unused services** and **remove unnecessary permissions**.
+
+---
+
+### ✅ IAM Credential Report
+
+The **Credential Report** is a CSV file that provides an overview of **all IAM users** and their **credential usage**.
+
+#### 📍 Where to Find:
+- IAM Console → Credential Report (left panel) → Click "Download Report"
+
+#### 🧾 Credential Report Example:
+
+| User | Password Enabled | Password Last Used | Access Key 1 Active | Access Key 1 Last Used | MFA Active |
+|------|------------------|---------------------|----------------------|------------------------|------------|
+| root | true             | 2025-07-10          | false                | -                      | true       |
+| dev1 | true             | N/A                 | true                 | 2025-06-15             | false      |
+| ops  | false            | -                   | true                 | Never                  | true       |
+
+#### 🔍 Key Fields Explained:
+- `password_enabled`: Is console password enabled?
+- `password_last_used`: When was it last used?
+- `mfa_active`: Is MFA enabled?
+- `access_key_X_active`: Is access key active?
+- `access_key_X_last_used`: When the access key was last used?
+
+---
+
+### 🧠 Use Cases
+
+| Use Case                             | Tool              | Action                                  |
+|--------------------------------------|-------------------|-----------------------------------------|
+| Identify unused access keys          | Credential Report | Deactivate or delete keys               |
+| Detect users without MFA             | Credential Report | Enable MFA or restrict access           |
+| Remove unused permissions            | Access Advisor    | Apply least privilege principle         |
+| Audit compliance and security        | Both              | Provide data for security reviews       |
+| Detect inactive users                | Credential Report | Remove or disable IAM user accounts     |
+
+---
+
+### ✅ Best Practices:
+- Review Access Advisor **monthly**.
+- Enable **MFA** for all users.
+- Rotate access keys **every 90 days**.
+- Use **IAM roles** over users where possible.
+- Regularly analyze the **Credential Report** for outdated or risky credentials.
