@@ -69,7 +69,6 @@ An **IAM Role** is an identity with **permissions policies** that can be **assum
 | Temporary credentials for users        | Allow federated users or apps to access AWS with temporary creds        |
 | Application or Lambda permissions      | Lambda assumes a role to access RDS, S3, DynamoDB, etc.                 |
 
-"""
 
 ### 🔑 IAM Permissions and Policies
 
