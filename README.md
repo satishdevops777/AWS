@@ -50,24 +50,19 @@ This document provides a concise summary of AWS fundamental concepts including R
 - Users can:
   - Belong to multiple groups
   - Not belong to any group at all
+- **IAM Roles**
+  - An **IAM Role** is an identity with **permissions policies** that can be **assumed by trusted entities** (like users, applications, EC2 instances, AWS services, etc.).
+  - Roles are **not associated with a specific user or group**
+  - Instead, they are **assumed temporarily** to gain access to AWS resources.
 
-## 🔐 IAM Roles
-
-An **IAM Role** is an identity with **permissions policies** that can be **assumed by trusted entities** (like users, applications, EC2 instances, AWS services, etc.).
-
-- Roles are **not associated with a specific user or group**
-- Instead, they are **assumed temporarily** to gain access to AWS resources.
-
----
-
-### ✅ Key Use Cases of IAM Roles
-
-| Use Case                               | Example                                                                 |
-|----------------------------------------|-------------------------------------------------------------------------|
-| Grant AWS service permissions to resources | Allow an EC2 instance to access S3 using a role with S3 permissions     |
-| Cross-account access                   | Grant a user in Account A access to resources in Account B              |
-| Temporary credentials for users        | Allow federated users or apps to access AWS with temporary creds        |
-| Application or Lambda permissions      | Lambda assumes a role to access RDS, S3, DynamoDB, etc.                 |
+  ✅ Key Use Cases of IAM Roles
+  
+  | Use Case                               | Example                                                                 |
+  |----------------------------------------|-------------------------------------------------------------------------|
+  | Grant AWS service permissions to resources | Allow an EC2 instance to access S3 using a role with S3 permissions     |
+  | Cross-account access                   | Grant a user in Account A access to resources in Account B              |
+  | Temporary credentials for users        | Allow federated users or apps to access AWS with temporary creds        |
+  | Application or Lambda permissions      | Lambda assumes a role to access RDS, S3, DynamoDB, etc.                 |
 
 
 ### 🔑 IAM Permissions and Policies
